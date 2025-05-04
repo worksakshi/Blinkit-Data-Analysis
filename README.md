@@ -39,21 +39,36 @@ CREATE DATABASE dbblinkit;
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
 ```sql
-SELECT COUNT(*) FROM retail_sales;
-SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-SELECT DISTINCT category FROM retail_sales;
+SELECT COUNT(*) FROM blinkit;
 
-SELECT * FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
 
-DELETE FROM retail_sales
+SELECT * FROM blinkit
 WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+    Item_Fat_Content IS NULL OR Item_Identifier IS NULL OR Item_Type IS NULL OR 
+    Outlet_Establishment_Year IS NULL OR Outlet_Identifier IS NULL OR Outlet_Location_Type IS NULL OR 
+    Outlet_Size IS NULL OR Outlet_Type IS NULL OR Item_Visibility IS NULL OR Item_Weight IS NULL
+    OR Total_Sales IS NULL OR Rating IS NULL;
+
+DELETE FROM retail_sales    
+WHERE 
+    Item_Fat_Content IS NULL OR Item_Identifier IS NULL OR Item_Type IS NULL OR 
+    Outlet_Establishment_Year IS NULL OR Outlet_Identifier IS NULL OR Outlet_Location_Type IS NULL OR 
+    Outlet_Size IS NULL OR Outlet_Type IS NULL OR Item_Visibility IS NULL OR Item_Weight IS NULL
+    OR Total_Sales IS NULL OR Rating IS NULL;
+
+SELECT DISTINCT Item_Fat_Content 
+FROM blinkit;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE blinkit
+SET Item_Fat_Content = 'Regular'
+WHERE Item_Fat_Content = 'reg';
+
+UPDATE Blinkit
+SET Item_Fat_Content = 'Low Fat'
+WHERE Item_Fat_Content = 'low fat';
+
+SET SQL_SAFE_UPDATES = 1;
 ```
 
 ### 3. Data Analysis & Findings
