@@ -163,7 +163,7 @@ GROUP BY Item_Identifier
 LIMIT 5;
 ```
 
-12. **Write a SQL query to find the average visibility of items with a rating of 5**:
+13. **Write a SQL query to find the average visibility of items with a rating of 5**:
 ```sql
 SELECT Item_Identifier, AVG(Item_Visibility), Rating
 FROM blinkit
@@ -171,7 +171,7 @@ WHERE Rating = 5
 GROUP BY Item_identifier;
 ```
 
-13. **Write a SQL query to get the list of outlets that were set up before 2015**:
+14. **Write a SQL query to get the list of outlets that were set up before 2015**:
 ```sql
 SELECT Outlet_Identifier, Outlet_Location_Type
 FROM blinkit
@@ -179,7 +179,7 @@ WHERE Outlet_Establishment_Year < 2015
 GROUP BY Outlet_Identifier, Outlet_Location_Type;
 ```
 
-14. **Write a SQL query to classify outlets into 'High' and 'Low' sales categories based on their total sales (threshold = 70000)**:
+15. **Write a SQL query to classify outlets into 'High' and 'Low' sales categories based on their total sales (threshold = 70000)**:
 ```sql
 SELECT Outlet_Identifier, SUM(Total_Sales) AS Sales_for_each_Outlet, 
        CASE 
@@ -189,7 +189,7 @@ SELECT Outlet_Identifier, SUM(Total_Sales) AS Sales_for_each_Outlet,
 FROM blinkit
 GROUP BY Outlet_Identifier;
 ```
-15. **Write a SQL query to round the visibility of each product to 3 decimal places**:
+16. **Write a SQL query to round the visibility of each product to 3 decimal places**:
 ```sql
 SELECT ROUND(Item_Visibility, 3)
 FROM blinkit;
