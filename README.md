@@ -1,4 +1,4 @@
-# Retail Sales Analysis SQL Project
+# Blinkit Data Analysis SQL Project
 
 ## Project Overview
 
