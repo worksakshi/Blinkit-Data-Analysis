@@ -19,8 +19,8 @@ Performed SQL-based analysis on a retail grocery dataset involving product detai
 ### 1. Database Setup
 
 - **Database Creation**: The project starts by creating a database named `dbblinkit`.
-- **Table Creation**: A table named `blinkit` is created to store the sales data. The table structure includes columns for Item_Fat_Content, Item_Identifier, Item_Type, Outlet_Establishment_Year, Outlet_Identifier, Outlet_Location_Type, Outlet_Size, Outlet_Type, Item_Visibility, Item_Weight, Total_Sales, Rating.
-
+- **Table Creation**: A table named `blinkit` is created to store the sales data. The table structure includes columns for Item_Fat_Content, Item_Identifier, Item_Type, Outlet_Establishment_Year, Outlet_Identifier, Outlet_Location_Type, Outlet_Size, Outlet_Type, Item_Visibility, Item_Weight, Total_Sales, Rating. Data is imported in the MySQL Workbench and table is auto created during importing the data.
+  
 ```sql
 CREATE DATABASE dbblinkit;
 ```
