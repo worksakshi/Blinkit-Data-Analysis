@@ -27,7 +27,7 @@ CREATE DATABASE dbblinkit;
 
 ### 2. Data Exploration & Cleaning
 
-- **Record Count**: Retrieved total number of records in the BlinkIT dataset using COUNT(*).
+- **Record Count**: Retrieved total number of records in the Blinkit dataset using COUNT(*).
 
 ```sql
 SELECT COUNT(*) FROM blinkit;
@@ -50,42 +50,13 @@ WHERE
     OR Total_Sales IS NULL OR Rating IS NULL;
 ```
 
-
-
-
-
-
 - **Label Standardization**: Identified inconsistent labels in Item_Fat_Content and standardized them using UPDATE statements.
 
   Replaced 'reg' with 'Regular'.
 
   Replaced 'LF' with 'Low Fat'.
-
-
-- **SQL Safe Mode**: Temporarily disabled and re-enabled SQL safe update mode for data cleaning.
-
-
-```sql
-SELECT COUNT(*) FROM blinkit;
-
-
-SELECT * FROM blinkit
-WHERE 
-    Item_Fat_Content IS NULL OR Item_Identifier IS NULL OR Item_Type IS NULL OR 
-    Outlet_Establishment_Year IS NULL OR Outlet_Identifier IS NULL OR Outlet_Location_Type IS NULL OR 
-    Outlet_Size IS NULL OR Outlet_Type IS NULL OR Item_Visibility IS NULL OR Item_Weight IS NULL
-    OR Total_Sales IS NULL OR Rating IS NULL;
-
-DELETE FROM retail_sales    
-WHERE 
-    Item_Fat_Content IS NULL OR Item_Identifier IS NULL OR Item_Type IS NULL OR 
-    Outlet_Establishment_Year IS NULL OR Outlet_Identifier IS NULL OR Outlet_Location_Type IS NULL OR 
-    Outlet_Size IS NULL OR Outlet_Type IS NULL OR Item_Visibility IS NULL OR Item_Weight IS NULL
-    OR Total_Sales IS NULL OR Rating IS NULL;
-
-SELECT DISTINCT Item_Fat_Content 
-FROM blinkit;
-
+  
+```sql 
 SET SQL_SAFE_UPDATES = 0;
 UPDATE blinkit
 SET Item_Fat_Content = 'Regular'
@@ -95,6 +66,11 @@ UPDATE Blinkit
 SET Item_Fat_Content = 'Low Fat'
 WHERE Item_Fat_Content = 'low fat';
 
+SET SQL_SAFE_UPDATES = 1;
+```
+
+- **SQL Safe Mode**: Temporarily disabled and re-enabled SQL safe update mode for data cleaning.
+```sql
 SET SQL_SAFE_UPDATES = 1;
 ```
 
