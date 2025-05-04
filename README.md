@@ -31,13 +31,12 @@ CREATE DATABASE dbblinkit;
 
 - **Label Standardization**: Identified inconsistent labels in Item_Fat_Content and standardized them using UPDATE statements.
 
-                           Replaced 'reg' with 'Regular'.
+  Replaced 'reg' with 'Regular'.
 
-                           **Replaced 'low fat' with 'Low Fat'.
+  Replaced 'LF' with 'Low Fat'.
 
 - **SQL Safe Mode**: Temporarily disabled and re-enabled SQL safe update mode for data cleaning.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
-
 
 ```sql
 SELECT COUNT(*) FROM retail_sales;
