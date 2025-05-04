@@ -33,7 +33,7 @@ CREATE DATABASE dbblinkit;
 SELECT COUNT(*) FROM blinkit;
 ```
 
-- **Null Value Check**: Checked for null values in the dataset and delete records with missing data.
+- **Null Value Check**: Checked for null values in the dataset and deleted records with missing data.
 ```sql
 SELECT * FROM blinkit
 WHERE 
