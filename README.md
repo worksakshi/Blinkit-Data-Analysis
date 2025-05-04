@@ -28,8 +28,8 @@ CREATE DATABASE dbblinkit;
 ### 2. Data Exploration & Cleaning
 
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
-  Data Exploration & Cleaning
--**Record Count**: Retrieved total number of records in the BlinkIT dataset using COUNT(*).
+
+- **Record Count**: Retrieved total number of records in the BlinkIT dataset using COUNT(*).
 
 -**Label Standardization**: Identified inconsistent labels in Item_Fat_Content and standardized them using UPDATE statements.
 
