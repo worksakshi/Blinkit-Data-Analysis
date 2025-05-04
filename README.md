@@ -119,65 +119,82 @@ FROM blinkit
 WHERE Item_Type = 'Frozen Foods' OR Item_Type = 'Canned';
 ```
 
-7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
+7. **Write a SQL query to find the average total sales for each type of product we sell:**:
 ```sql
-SELECT 
-       year,
-       month,
-    avg_sale
-FROM 
-(    
-SELECT 
-    EXTRACT(YEAR FROM sale_date) as year,
-    EXTRACT(MONTH FROM sale_date) as month,
-    AVG(total_sale) as avg_sale,
-    RANK() OVER(PARTITION BY EXTRACT(YEAR FROM sale_date) ORDER BY AVG(total_sale) DESC) as rank
-FROM retail_sales
-GROUP BY 1, 2
-) as t1
-WHERE rank = 1
+SELECT Item_Type, Total_Sales,
+	    avg(Total_Sales) OVER(PARTITION BY Item_Type)AS AVERAGE_TOTAL_SALE
+FROM blinkit;
 ```
 
-8. **Write a SQL query to find the top 5 customers based on the highest total sales **:
+8. **Write a SQL query to identify which Outlet_Type has the highest average sales**:
 ```sql
-SELECT 
-    customer_id,
-    SUM(total_sale) as total_sales
-FROM retail_sales
-GROUP BY 1
-ORDER BY 2 DESC
-LIMIT 5
+SELECT Outlet_Type, AVG(Total_Sales) as Average_Sales
+FROM blinkit
+GROUP BY Outlet_Type
+ORDER BY Average_Sales DESC
+LIMIT 1;
 ```
 
-9. **Write a SQL query to find the number of unique customers who purchased items from each category.**:
+9. **Write a SQL query to find out how many items were sold at each outlet and the total sales volume for every store location**:
 ```sql
-SELECT 
-    category,    
-    COUNT(DISTINCT customer_id) as cnt_unique_cs
-FROM retail_sales
-GROUP BY category
+SELECT Outlet_Identifier, COUNT(Item_Identifier) AS Item_Sold, SUM(Total_Sales) AS Total_Sales
+FROM blinkit
+GROUP BY Outlet_Identifier;
 ```
 
-10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, Evening >17)**:
+10. **Write a SQL query to find the average weight of items for each fat content category**:
 ```sql
-WITH hourly_sale
-AS
-(
-SELECT *,
-    CASE
-        WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Morning'
-        WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-        ELSE 'Evening'
-    END as shift
-FROM retail_sales
-)
-SELECT 
-    shift,
-    COUNT(*) as total_orders    
-FROM hourly_sale
-GROUP BY shift
+SELECT Item_Fat_Content, AVG(Item_Weight) AS Average_Weight
+FROM blinkit
+GROUP BY Item_Fat_Content;
 ```
 
+11. **Write a SQL query to find out how many unique products are listed in the inventory**:
+```sql
+SELECT COUNT(DISTINCT Item_Identifier) AS Unique_Products
+FROM blinkit;
+```
+12. **Write a SQL query to identify the top 5 products that have generated the highest total sales**:
+```sql
+SELECT Item_Identifier, SUM(Total_Sales) AS Sales, 
+	   RANK() OVER(ORDER BY SUM(Total_Sales) DESC) AS Sales_Rank
+FROM blinkit
+GROUP BY Item_Identifier
+LIMIT 5;
+```
+
+12. **Write a SQL query to find the average visibility of items with a rating of 5**:
+```sql
+SELECT Item_Identifier, AVG(Item_Visibility), Rating
+FROM blinkit
+WHERE Rating = 5
+GROUP BY Item_identifier;
+```
+
+13. **Write a SQL query to get the list of outlets that were set up before 2015**:
+```sql
+SELECT Outlet_Identifier, Outlet_Location_Type
+FROM blinkit
+WHERE Outlet_Establishment_Year < 2015
+GROUP BY Outlet_Identifier, Outlet_Location_Type;
+```
+
+14. **Write a SQL query to classify outlets into 'High' and 'Low' sales categories based on their total sales (threshold = 70000)**:
+```sql
+SELECT Outlet_Identifier, SUM(Total_Sales) AS Sales_for_each_Outlet, 
+       CASE 
+       WHEN SUM(Total_Sales)> 70000 THEN 'High'
+       ELSE 'Low'
+       END as Sales_Category
+FROM blinkit
+GROUP BY Outlet_Identifier;
+```
+15. **Write a SQL query to round the visibility of each product to 3 decimal places**:
+```sql
+SELECT ROUND(Item_Visibility, 3)
+FROM blinkit;
+GROUP BY Outlet_Identifier;
+```
 ## Findings
 
 - **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
