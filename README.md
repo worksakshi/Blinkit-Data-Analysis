@@ -33,7 +33,7 @@ CREATE DATABASE dbblinkit;
 SELECT COUNT(*) FROM blinkit;
 ```
 
-- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
+- **Null Value Check**: Checked for null values in the dataset and delete records with missing data.
 ```sql
 SELECT * FROM blinkit
 WHERE 
@@ -42,7 +42,7 @@ WHERE
     Outlet_Size IS NULL OR Outlet_Type IS NULL OR Item_Visibility IS NULL OR Item_Weight IS NULL
     OR Total_Sales IS NULL OR Rating IS NULL;
 
-DELETE FROM retail_sales    
+DELETE FROM blinkit    
 WHERE 
     Item_Fat_Content IS NULL OR Item_Identifier IS NULL OR Item_Type IS NULL OR 
     Outlet_Establishment_Year IS NULL OR Outlet_Identifier IS NULL OR Outlet_Location_Type IS NULL OR 
@@ -71,6 +71,7 @@ SET SQL_SAFE_UPDATES = 1;
 
 - **SQL Safe Mode**: Temporarily disabled and re-enabled SQL safe update mode for data cleaning.
 ```sql
+SET SQL_SAFE_UPDATES = 0;
 SET SQL_SAFE_UPDATES = 1;
 ```
 
