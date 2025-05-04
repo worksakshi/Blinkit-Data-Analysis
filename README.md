@@ -209,7 +209,7 @@ GROUP BY Outlet_Identifier;
 - **Sales Summary Report**: A detailed breakdown of total sales, top-selling products, and average sales per outlet, offering a snapshot of Blinkit's performance.
 - **Product Insights Report**: Includes insights on item weight, visibility, and fat content, helping with product categorization and shelf space planning.
 - **Outlet Analysis Report**: Provides data on outlet-wise sales, establishment years, and sales-based classification, useful for strategic expansion and resource allocation.
-- 
+
 ## Conclusion
 
 This SQL-based project on the Blinkit dataset demonstrates the effective use of data cleaning, exploration, and business-focused querying to derive actionable insights. By analyzing product attributes, outlet performance, and sales trends, this project supports strategic decision-making for inventory management, outlet optimization, and marketing. It also reinforces key SQL concepts such as aggregation, window functions, and conditional logic, making it a strong foundation for real-world data analysis in retail.
