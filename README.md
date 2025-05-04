@@ -100,30 +100,23 @@ FROM blinkit;
 
 4. **Write a SQL query to generate a list of heavier items (weighing over 12 units) for logistics and storage planning.**:
 ```sql
-SELECT
-    ROUND(AVG(age), 2) as avg_age
-FROM retail_sales
-WHERE category = 'Beauty'
+SELECT *
+FROM blinkit
+WHERE Item_Weight > 12.0;
 ```
 
-5. **Write a SQL query to find all transactions where the total_sale is greater than 1000.**:
+5. **Write a SQL query to find the number of product records sold through medium-sized retail outlets**:
 ```sql
-SELECT * FROM retail_sales
-WHERE total_sale > 1000
+SELECT * 
+FROM blinkit
+WHERE Outlet_Size = 'Medium';
 ```
 
-6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.**:
+6. **Write a SQL query to isolate all transactions involving 'Frozen Foods' or 'Canned' products for category-specific performance tracking**:
 ```sql
-SELECT 
-    category,
-    gender,
-    COUNT(*) as total_trans
-FROM retail_sales
-GROUP 
-    BY 
-    category,
-    gender
-ORDER BY 1
+SELECT *
+FROM blinkit
+WHERE Item_Type = 'Frozen Foods' OR Item_Type = 'Canned';
 ```
 
 7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
