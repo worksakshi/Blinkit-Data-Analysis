@@ -79,37 +79,26 @@ SET SQL_SAFE_UPDATES = 1;
 
 The following SQL queries were developed to answer specific business questions:
 
-1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
+1. **Write a SQL query to extract a list of all products along with their categories and respective weights for product cataloging purposes**:
 ```sql
-SELECT *
-FROM retail_sales
-WHERE sale_date = '2022-11-05';
+SELECT Item_Type, Item_Weight
+FROM blinkit;
 ```
 
-2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
+2. **Write a SQL query to identify the different types of fat content labels used for items in the product catalog**:
 ```sql
-SELECT 
-  *
-FROM retail_sales
-WHERE 
-    category = 'Clothing'
-    AND 
-    TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
-    AND
-    quantity >= 4
+SELECT DISTINCT Item_Fat_Content 
+FROM blinkit;
 ```
 
-3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
+3. **Write a SQL query to rank all products based on total sales to identify top-performing items**:
 ```sql
-SELECT 
-    category,
-    SUM(total_sale) as net_sale,
-    COUNT(*) as total_orders
-FROM retail_sales
-GROUP BY 1
+SELECT Item_Identifier, Total_Sales,
+       RANK() OVER(ORDER BY Total_Sales DESC)
+FROM blinkit;
 ```
 
-4. **Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.**:
+4. **Write a SQL query to generate a list of heavier items (weighing over 12 units) for logistics and storage planning.**:
 ```sql
 SELECT
     ROUND(AVG(age), 2) as avg_age
