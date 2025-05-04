@@ -27,10 +27,17 @@ CREATE DATABASE dbblinkit;
 
 ### 2. Data Exploration & Cleaning
 
-- **Record Count**: Determine the total number of records in the dataset.
-- **Customer Count**: Find out how many unique customers are in the dataset.
-- **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
+  Data Exploration & Cleaning
+-**Record Count**: Retrieved total number of records in the BlinkIT dataset using COUNT(*).
+
+-**Label Standardization**: Identified inconsistent labels in Item_Fat_Content and standardized them using UPDATE statements.
+
+                           Replaced 'reg' with 'Regular'.
+
+                           **Replaced 'low fat' with 'Low Fat'.
+
+-**SQL Safe Mode**: Temporarily disabled and re-enabled SQL safe update mode for data cleaning.
 
 ```sql
 SELECT COUNT(*) FROM retail_sales;
