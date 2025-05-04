@@ -197,39 +197,22 @@ GROUP BY Outlet_Identifier;
 ```
 ## Findings
 
-- **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
-- **High-Value Transactions**: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
-- **Sales Trends**: Monthly analysis shows variations in sales, helping identify peak seasons.
-- **Customer Insights**: The analysis identifies the top-spending customers and the most popular product categories.
+- **Product Diversity**: The dataset includes a wide range of products with various fat content types, weights, and categories such as Frozen Foods, Canned Goods, and Dairy, reflecting 
+  Blinkit’s diverse product catalog.
+- **High-Selling Products**: Ranking items based on total sales helped identify top-performing products, which are key for inventory planning and promotional strategies.
+- **Outlet Performance**: Analysis showed differences in total sales and product volumes across outlet types and sizes. Medium-sized and older outlets played a significant role in 
+  overall sales contributions.
+- **Outlet Classification**: Outlets were successfully categorized into High and Low sales groups based on total sales volume, helping evaluate outlet-level efficiency.
 
 ## Reports
 
-- **Sales Summary**: A detailed report summarizing total sales, customer demographics, and category performance.
-- **Trend Analysis**: Insights into sales trends across different months and shifts.
-- **Customer Insights**: Reports on top customers and unique customer counts per category.
-
+- **Sales Summary Report**: A detailed breakdown of total sales, top-selling products, and average sales per outlet, offering a snapshot of Blinkit's performance.
+- **Product Insights Report**: Includes insights on item weight, visibility, and fat content, helping with product categorization and shelf space planning.
+- **Outlet Analysis Report**: Provides data on outlet-wise sales, establishment years, and sales-based classification, useful for strategic expansion and resource allocation.
+- 
 ## Conclusion
 
-This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
+This SQL-based project on the Blinkit dataset demonstrates the effective use of data cleaning, exploration, and business-focused querying to derive actionable insights. By analyzing product attributes, outlet performance, and sales trends, this project supports strategic decision-making for inventory management, outlet optimization, and marketing. It also reinforces key SQL concepts such as aggregation, window functions, and conditional logic, making it a strong foundation for real-world data analysis in retail.
 
-## How to Use
-
-1. **Clone the Repository**: Clone this project repository from GitHub.
-2. **Set Up the Database**: Run the SQL scripts provided in the `database_setup.sql` file to create and populate the database.
-3. **Run the Queries**: Use the SQL queries provided in the `analysis_queries.sql` file to perform your analysis.
-4. **Explore and Modify**: Feel free to modify the queries to explore different aspects of the dataset or answer additional business questions.
-
-## Author - Zero Analyst
-
-This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
-
-### Stay Updated and Join the Community
-
-For more content on SQL, data analysis, and other data-related topics, make sure to follow me on social media and join our community:
-
-- **YouTube**: [Subscribe to my channel for tutorials and insights](https://www.youtube.com/@zero_analyst)
-- **Instagram**: [Follow me for daily tips and updates](https://www.instagram.com/zero_analyst/)
-- **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/najirr)
-- **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
-
-Thank you for your support, and I look forward to connecting with you!
+Thank you and I look forward to connecting with you!
+You can reach out to me at work.sakshijadhav@gmail.com
