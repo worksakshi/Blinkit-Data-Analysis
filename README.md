@@ -29,14 +29,41 @@ CREATE DATABASE dbblinkit;
 
 - **Record Count**: Retrieved total number of records in the BlinkIT dataset using COUNT(*).
 
+```sql
+SELECT COUNT(*) FROM blinkit;
+```
+
+- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
+```sql
+SELECT * FROM blinkit
+WHERE 
+    Item_Fat_Content IS NULL OR Item_Identifier IS NULL OR Item_Type IS NULL OR 
+    Outlet_Establishment_Year IS NULL OR Outlet_Identifier IS NULL OR Outlet_Location_Type IS NULL OR 
+    Outlet_Size IS NULL OR Outlet_Type IS NULL OR Item_Visibility IS NULL OR Item_Weight IS NULL
+    OR Total_Sales IS NULL OR Rating IS NULL;
+
+DELETE FROM retail_sales    
+WHERE 
+    Item_Fat_Content IS NULL OR Item_Identifier IS NULL OR Item_Type IS NULL OR 
+    Outlet_Establishment_Year IS NULL OR Outlet_Identifier IS NULL OR Outlet_Location_Type IS NULL OR 
+    Outlet_Size IS NULL OR Outlet_Type IS NULL OR Item_Visibility IS NULL OR Item_Weight IS NULL
+    OR Total_Sales IS NULL OR Rating IS NULL;
+```
+
+
+
+
+
+
 - **Label Standardization**: Identified inconsistent labels in Item_Fat_Content and standardized them using UPDATE statements.
 
   Replaced 'reg' with 'Regular'.
 
   Replaced 'LF' with 'Low Fat'.
 
+
 - **SQL Safe Mode**: Temporarily disabled and re-enabled SQL safe update mode for data cleaning.
-- **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
+
 
 ```sql
 SELECT COUNT(*) FROM blinkit;
